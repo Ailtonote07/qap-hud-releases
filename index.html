@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QAP Live - Todas as suas lives num chat só</title>
+<meta name="description" content="Chat unificado de TikTok, Twitch, YouTube e Kick, alertas e overlays para OBS. Teste grátis por 5 dias no Windows.">
+<meta property="og:title" content="QAP Live - Todas as suas lives num chat só">
+<meta property="og:description" content="Chat unificado, alertas e overlays para OBS. Teste grátis por 5 dias.">
+<meta property="og:image" content="icon.png">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--bg:#09090b;--card:#111116;--line:#26262e;--tx:#f4f4f5;--mu:#a1a1aa;--y:#facc15;--tt:#25f4ee;--tw:#a78bfa;--yt:#ff5a5a;--kk:#53fc18}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:17px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(700px 500px at 10% -5%,#facc1522,transparent),radial-gradient(700px 600px at 100% 30%,#ff2bd614,transparent)}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+header{padding:22px 0;display:flex;align-items:center;gap:12px}
+header img{width:44px;height:44px;border-radius:12px}
+header b{font-size:20px;letter-spacing:.01em}
+header b span{color:var(--y)}
+.hero{display:grid;gap:36px;padding:34px 0 60px;align-items:center}
+@media(min-width:880px){.hero{grid-template-columns:1.05fr .95fr;padding:60px 0 90px}}
+.tag{display:inline-block;border:1px solid #facc1555;background:#facc1510;color:var(--y);font-weight:700;font-size:14px;padding:6px 14px;border-radius:99px;margin-bottom:18px}
+h1{font-size:clamp(36px,7vw,60px);line-height:1.04;letter-spacing:-.03em;font-weight:900}
+h1 span{color:var(--y)}
+.lead{color:var(--mu);font-size:19px;margin:20px 0 28px;max-width:34em}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;font-size:18px;padding:16px 28px;border-radius:14px;text-decoration:none;border:2px solid transparent;transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translateY(-2px)}
+.b1{background:var(--y);color:#111;box-shadow:0 8px 40px #facc1544}
+.b2{border-color:var(--line);color:var(--tx);background:#15151b}
+.note{color:var(--mu);font-size:14.5px;margin-top:14px}
+.plat{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.plat span{font-weight:800;font-size:14px;padding:7px 14px;border-radius:10px;border:1.5px solid}
+.mock{background:var(--card);border:1px solid #facc1544;border-radius:22px;padding:16px;box-shadow:0 20px 70px #000a,0 0 60px #facc1514}
+.mock h4{font-size:14px;color:var(--mu);font-weight:700;margin:2px 6px 10px;display:flex;justify-content:space-between}
+.mock h4 i{font-style:normal;color:#ef4444}
+.m{display:flex;align-items:center;gap:10px;padding:11px 6px;border-top:1px solid #ffffff10;font-size:15.5px;font-weight:600;white-space:nowrap;overflow:hidden}
+.m em{font-style:normal;font-size:11.5px;font-weight:900;padding:3px 8px;border-radius:6px;flex:none}
+.m s{text-decoration:none;color:#e4e4e7;font-weight:600;overflow:hidden;text-overflow:ellipsis}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,5vw,40px);line-height:1.1;letter-spacing:-.02em;font-weight:900;margin-bottom:12px}
+h2 span{color:var(--y)}
+.sub{color:var(--mu);margin-bottom:32px;max-width:40em}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.f{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.f .ic{font-size:30px;margin-bottom:10px}
+.f h3{font-size:19px;margin-bottom:6px}
+.f p{color:var(--mu);font-size:15.5px}
+.steps{display:grid;gap:14px;counter-reset:s}
+.st{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.st:before{counter-increment:s;content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--y);color:#111;font-weight:900;display:grid;place-items:center}
+.st b{display:block;font-size:18px}
+.st span{color:var(--mu);font-size:15.5px}
+.st a{color:var(--y)}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;font-size:17px}
+details p{color:var(--mu);margin-top:10px;font-size:16px}
+.cta{text-align:center;padding:70px 0 80px}
+.cta .btns{justify-content:center;margin-top:24px}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--mu);font-size:14px;text-align:center}
+footer a{color:var(--mu)}
+.plans{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));align-items:stretch}
+.pl{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;gap:6px;position:relative}
+.pl.best{border:2px solid var(--y);box-shadow:0 10px 50px #facc1522}
+.pl .bd{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--y);color:#111;font-weight:900;font-size:12.5px;padding:4px 14px;border-radius:99px;white-space:nowrap}
+.pl h3{font-size:19px}
+.pl .pr{font-size:40px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-top:6px}
+.pl .pr small{font-size:16px;color:var(--mu);font-weight:600}
+.pl .eq{color:var(--mu);font-size:15px}
+.pl .sv{color:var(--y);font-weight:700;font-size:15px;min-height:24px}
+.pl .btn{margin-top:auto;width:100%}
+.hide{display:none!important}
+</style>
+</head>
+<body>
+<div class="w">
+<header><img src="icon.png" alt="QAP Live"><b>QAP <span>Live</span></b></header>
+
+<div class="hero">
+ <div>
+  <span class="tag">Teste grátis por 5 dias · sem cartão</span>
+  <h1>Todas as suas lives <span>num chat só.</span></h1>
+  <p class="lead">Junte o chat do TikTok, Twitch, YouTube e Kick em um lugar, com alertas, ranking de curtidas com foto e overlays prontos para o OBS. Feito para quem faz live.</p>
+  <div class="btns">
+   <a class="btn b1" id="baixar" href="https://github.com/Ailtonote07/qap-hud-releases/releases/latest">⬇ Baixar para Windows</a>
+   <a class="btn b2" id="comprar" href="#planos">Ver planos</a>
+  </div>
+  <p class="note">Para Windows 10 e 11. Ao abrir, o teste começa sozinho.</p>
+  <div class="plat">
+   <span style="color:var(--tt);border-color:var(--tt)">TikTok</span>
+   <span style="color:var(--tw);border-color:var(--tw)">Twitch</span>
+   <span style="color:var(--yt);border-color:var(--yt)">YouTube</span>
+   <span style="color:var(--kk);border-color:var(--kk)">Kick</span>
+  </div>
+ </div>
+ <div class="mock" aria-hidden="true">
+  <h4><span>CHAT UNIFICADO</span><i>● AO VIVO</i></h4>
+  <div class="m"><em style="background:#06242a;color:var(--tt);border:1.5px solid var(--tt)">TIKTOK</em><b style="color:var(--tt)">nina_live</b><s>salve galera! 🔥</s></div>
+  <div class="m"><em style="background:#9146ff;color:#fff">TWITCH</em><b style="color:var(--tw)">DarkFox</b><s>que clutch!!</s></div>
+  <div class="m"><em style="background:#ff2d2d;color:#fff">YOUTUBE</em><b style="color:#ff9a9a">Mari_Gamer</b><s>primeira vez aqui</s></div>
+  <div class="m"><em style="background:var(--kk);color:#06200a">KICK</em><b style="color:#8dfc5f">kaue.live</b><s>manda salve</s></div>
+  <div class="m"><em style="background:#06242a;color:var(--tt);border:1.5px solid var(--tt)">TIKTOK</em><b style="color:var(--tt)">tio_do_pave</b><s>GG GG GG</s></div>
+  <div class="m"><em style="background:#ff2d2d;color:#fff">YOUTUBE</em><b style="color:#ff9a9a">LunaPlays</b><s>muito boa a live!</s></div>
+ </div>
+</div>
+</div>
+
+<section><div class="w">
+ <h2>Tudo que você precisa <span>na live</span></h2>
+ <p class="sub">Um programa só, sem abrir várias abas e sem perder mensagem.</p>
+ <div class="grid">
+  <div class="f"><div class="ic">💬</div><h3>Chat unificado</h3><p>As mensagens de todas as plataformas na mesma tela, cada uma com a cor e a etiqueta de onde veio.</p></div>
+  <div class="f"><div class="ic">🔔</div><h3>Alertas</h3><p>Seguidor, inscrição e presente aparecem na tela da live, em vários modelos para escolher.</p></div>
+  <div class="f"><div class="ic">🏆</div><h3>Top com foto</h3><p>Ranking de curtidas e presentes com a foto de perfil de cada pessoa.</p></div>
+  <div class="f"><div class="ic">🎥</div><h3>Pronto para OBS</h3><p>Chat, alertas, viewers e metas como fontes de navegador. É só copiar o link e colar.</p></div>
+  <div class="f"><div class="ic">🔊</div><h3>Leitura em voz alta</h3><p>O chat pode ser lido por voz, sem você tirar os olhos do jogo.</p></div>
+  <div class="f"><div class="ic">🔄</div><h3>Atualização automática</h3><p>Novidades chegam sozinhas. Você não precisa baixar tudo de novo.</p></div>
+ </div>
+</div></section>
+
+<section><div class="w">
+ <h2>Como <span>começar</span></h2>
+ <p class="sub">Menos de 5 minutos.</p>
+ <div class="steps">
+  <div class="st"><div><b>Baixe e instale</b><span>Clique em "Baixar para Windows", abra a página que aparecer e baixe o arquivo <b style="display:inline">QAP-Live-Setup</b> com final .exe.</span></div></div>
+  <div class="st"><div><b>Abra o QAP Live</b><span>O teste de 5 dias começa sozinho. Digite o seu canal em cada plataforma e conecte.</span></div></div>
+  <div class="st"><div><b>Cole os links no OBS</b><span>Na aba "Fontes do OBS", copie o link de cada item e adicione como fonte de navegador.</span></div></div>
+  <div class="st"><div><b>Gostou? Ative com o seu código</b><span>Depois da compra, veja o seu código em <a href="https://qap-licencas.ailtonote07.workers.dev/resgatar">Meu código</a> (digite o e-mail da compra) e cole em "Licença" no app.</span></div></div>
+ </div>
+</div></section>
+
+<section id="planos"><div class="w">
+ <h2>Escolha o seu <span>plano</span></h2>
+ <p class="sub">Todos têm tudo liberado. Quanto mais longo o plano, menos você paga por mês. Teste 5 dias grátis antes de decidir.</p>
+ <div class="plans">
+  <div class="pl"><h3>Mensal</h3><div class="pr">R$ 60<small>/mês</small></div><div class="eq">Cobrança todo mês</div><div class="sv">&nbsp;</div>
+   <a class="btn b2" href="https://pay.kiwify.com.br/uP1utUI">Assinar mensal</a></div>
+  <div class="pl best"><span class="bd">MAIS ESCOLHIDO</span><h3>Trimestral</h3><div class="pr">R$ 149,90</div><div class="eq">a cada 3 meses · R$ 49,97 por mês</div><div class="sv">Economize R$ 30,10</div>
+   <a class="btn b1" href="https://pay.kiwify.com.br/APiYhuQ">Assinar trimestral</a></div>
+  <div class="pl"><h3>Anual</h3><div class="pr">R$ 449,90</div><div class="eq">por ano · R$ 37,49 por mês</div><div class="sv">Economize R$ 270,10</div>
+   <a class="btn b2" href="https://pay.kiwify.com.br/b4n4RYr">Assinar anual</a></div>
+ </div>
+ <p class="note" style="margin-top:16px">Pagamento seguro pela Kiwify, com cartão ou Pix. 7 dias de garantia. No cartão a renovação é automática; no Pix você paga de novo a cada período.</p>
+</div></section>
+
+<section><div class="w">
+ <h2>Perguntas <span>rápidas</span></h2>
+ <p class="sub" style="margin-bottom:22px"></p>
+ <details><summary>Preciso de cartão para testar?</summary><p>Não. O teste de 5 dias começa ao abrir o programa, sem cadastro e sem cartão.</p></details>
+ <details><summary>O Windows mostrou "O Windows protegeu o computador". É seguro?</summary><p>Esse aviso aparece em programas novos que ainda não têm assinatura paga da Microsoft. Clique em "Mais informações" e depois em "Executar assim mesmo". Baixe sempre por esta página.</p></details>
+ <details><summary>Funciona em Mac ou celular?</summary><p>Por enquanto só em computador com Windows 10 ou 11.</p></details>
+ <details><summary>Posso usar em mais de um computador?</summary><p>Cada código vale para 1 computador. Para trocar de computador, fale com o suporte.</p></details>
+ <details><summary>Preciso fazer login nas plataformas?</summary><p>Para ler o chat não é obrigatório na maioria. O login só serve para enviar mensagens ou ativar alguns recursos extras.</p></details>
+ <details><summary>Como pago e posso cancelar?</summary><p>O pagamento é feito pela Kiwify, com cartão ou Pix, e tem 7 dias de garantia. No cartão a renovação é automática; no Pix você paga de novo a cada período. Você pode cancelar quando quiser e continua usando até o fim do período pago.</p></details>
+</div></section>
+
+<div class="cta"><div class="w">
+ <h2>Teste agora. <span>É grátis.</span></h2>
+ <div class="btns"><a class="btn b1" id="baixar2" href="https://github.com/Ailtonote07/qap-hud-releases/releases/latest">⬇ Baixar para Windows</a><a class="btn b2" href="#planos">Ver planos</a></div>
+</div></div>
+
+<footer><div class="w">QAP Live · Beta · Dúvidas: <a href="mailto:ailtonote07@gmail.com">ailtonote07@gmail.com</a></div></footer>
+
+
+</body>
+</html>
